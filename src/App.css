@@ -1,0 +1,518 @@
+@import url('https://fonts.googleapis.com/css2?family=Karla:ital@0;1&family=Markazi+Text:wght@400..700&display=swap');
+
+:root {
+  --p-green: #495e57;
+  --p-yellow: #f4ce14;
+  --s-salmon: #ee9972;
+  --s-cream: #fbdabb;
+  --h-white: #edefee;
+  --h-black: #333;
+}
+
+/* sr-only */
+.sr-only {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    padding: 0 !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    clip: rect(0, 0, 0, 0) !important;
+    white-space: nowrap !important;
+    border: 0!important;
+  }
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+   scroll-behavior: auto;
+  }
+  
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/*  Resets  */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font: inherit;
+  }
+
+html,
+body {
+  height: 100vh;
+  margin: 0;
+}
+
+
+body {
+  text-rendering: optimizeSpeed;
+  font-family: 'Karla', serif;
+  color: var(--h-black);
+}
+
+
+img, picture, svg {
+  max-width: 100%;
+  display: block;
+}
+ul { 
+  list-style:none;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+a:visited {
+  color: inherit;
+}
+h1,h2,h3,h4 {
+  font-family: 'Markazi', serif;
+  line-height: 130%;
+}
+h1 {
+  font-size:3.5rem;
+  font-weight: 500;
+}
+h2 {
+  font-size: 2.5rem;
+}
+p {
+  font-size: 1.2rem;
+  line-height: 150%;
+}
+
+
+/* Global */
+
+
+::-moz-selection { 
+  color: var(--h-white);
+  background: var(--h-black);
+}
+
+::selection {
+  color: var(--h-white);
+  background: var(--h-black);
+}
+
+.yellow{
+  color: var(--p-yellow);
+}
+.white {
+  color: var(--h-white)
+}
+.button {
+  background-color: var(--p-yellow);
+  border: none;
+  color:var(--h-black);
+  font-size: 1.1rem;
+  font-weight: 600;
+  padding: .75rem;
+  margin-top: 1.1rem;
+  border-radius: 100rem;
+}
+
+
+.button:hover {
+  background-color: var(--s-cream);
+}
+.button:active {
+ background-color: var(--h-black);
+ color: var(--h-white);
+}
+
+h4 {
+  font-size: 1.25rem;
+}
+
+.flex-container {
+  display: flex;
+  flex-flow: column;
+  height: 100vh;
+}
+.flex-container > * {
+  flex: 0 0 auto;
+}
+
+.main {
+  flex: 1 1 auto;
+}
+
+/*Utility*/
+
+.limited-width{
+  margin:auto;
+  max-width: 70rem;
+  padding: 0 2rem;
+}
+.bg-green {
+  background-color: var(--p-green);
+}
+.green{
+  color: var(--p-green);
+}
+
+/* Navigation */
+
+.logo{
+  min-width: 12rem;
+}
+
+
+.nav {
+  height: 5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight:700;
+  font-size:1.1rem;
+  background-color: white;
+}
+
+.nav__navigation {
+  margin-left: 3rem;
+  width: min(50rem,100%);
+  height: inherit;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--p-green);
+}
+
+.nav__navigation > li{
+  width: 100%;
+  height:100%;
+}
+
+.link{
+  padding: 1rem;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+} 
+.link:hover{
+  background-color: var(--p-green)!important;
+  color: var(--h-white)!important;
+}
+
+#check{
+  display: none;
+}
+
+
+/* Header */
+
+
+#reservation {
+  position:relative;
+  justify-content: space-between;
+  display: flex;
+  padding-top: 6rem;
+  padding-bottom: 6rem;
+}
+.reserve{
+  max-width: 26rem;
+}
+.reserve h2 {
+  margin-top: 1rem;
+}
+
+.headerImage {
+  position: absolute;
+  right: 2rem;
+  overflow: hidden;
+  height: min(30rem, 50vw);
+  width: min(30rem, 35vw);
+  border-radius: 1rem;
+}
+
+/* Footer */
+
+
+.footer {
+  display:flex;
+  width: 100%;
+  gap: min(8rem,4vw);
+  padding: 2rem min(2rem, 3vw);
+  background-color: var(--h-white);
+  justify-content: space-around;
+}
+
+.footer li {
+  margin-bottom: .25rem;
+}
+
+.footer-title {
+  margin-bottom: 1rem !important;
+}
+
+.footer-link:hover, .social-link:hover {
+  color: var(--p-green);
+}
+
+
+.social {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-template-areas:"a a a" "b c d";
+  gap: 0;
+}
+
+.social .footer-title {
+  grid-area: a;
+}
+
+.social-link {
+  justify-self: center;
+}
+
+/* Specials */
+#specials {
+  display:grid;
+  margin-bottom:2rem;
+  gap: 2rem;
+}
+.specials--title {
+  
+  margin-top: 6rem;
+  display:flex;
+  justify-content: space-between;
+}
+
+.specials--dishes {
+  display:grid;
+  grid-template-areas: "a b c";
+  gap: 4%;
+  grid-auto-columns: 1fr;
+}
+
+.specials--card {
+  background-color: var(--h-white);
+  flex-shrink:0;
+  flex-basis: 13.65rem;
+  flex-grow: 1;
+  overflow: hidden;
+  border-radius: 1rem;
+  min-height: 29rem;
+  position:relative;
+}
+.order-delivery {
+  position: absolute;
+  bottom: 1.25rem;
+  left: 1rem;
+  background-color: transparent;
+  border:none;
+  border-bottom: 1px solid transparent;
+  padding-bottom: 2px;
+}
+
+.order-delivery:hover {
+  border-color: var(--h-black);
+}
+
+.specials--image {
+  position: relative;
+  height: 10rem;
+  overflow: hidden;
+}
+
+.specials--image img{ 
+  position:absolute;
+  min-height:100%;
+  min-width: max(100%, 16em);
+}
+
+.specials--text{
+  width: 100%;
+  padding:1rem;
+  position: relative;
+  
+}
+.specials--text h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom:1rem ;
+}
+
+.specials--text span {
+  color: var(--s-salmon);
+  position: absolute;
+  right: 1rem;
+}
+
+.specials--text p {
+  font-size: 1.1rem;
+}
+
+
+/* Reservation Form*/
+.form-section{
+  background-color: white;
+  padding: 2rem;
+  padding-top: 6rem;
+}
+.form-title{
+  background-color: var(--p-green);
+  
+  max-width: 66rem;
+  margin:auto;
+  filter:drop-shadow(0px -6rem  var(--p-green)) 
+         drop-shadow(25rem 0rem  var(--p-green))
+         drop-shadow(50rem 0rem  var(--p-green))
+         drop-shadow(-50rem 0rem  var(--p-green))
+         drop-shadow(0px 1rem  var(--p-green));
+}
+
+
+.form-title h2 {
+  margin-top: 1rem;
+  
+}
+input:last-child {
+  margin:1rem auto;
+  max-width: 50%;
+}
+
+.form-field label {
+  margin-top: 1rem;
+
+}
+
+
+.form-field {
+  margin: auto;
+  margin-top: 3rem;
+  padding:2rem;
+  display: flex;
+  
+  
+  max-width: 66rem;
+  flex-direction: column;
+  gap: .5rem ;
+  font-size: 1.1rem;
+  border: 2px solid var(--p-green);
+  border-radius: 1rem;
+}
+
+.form-option{
+  background-color: var(--h-white);
+  border: none;
+  padding: 1rem;
+  border-radius: .25rem;
+}
+
+.confirmation{
+  padding-top: 6rem;
+  text-align: center;
+  min-height: 20rem;
+  background-color:var(--p-green);
+}
+
+.confirmation h2 {
+  color: var(--p-yellow);
+  font-size: 3rem;
+}
+
+.confirmation p {
+  color: var(--h-white);
+  font-size: 1.25rem;
+}
+
+
+@media(max-width: 768px) {
+  .specials--title {
+  
+    margin-top: 3rem;
+    
+  }
+  nav{
+    background-color: var(--h-white);
+    border-bottom: 1px solid var(--h-white);
+  }
+  .logo {
+    min-width: 13rem;
+  }
+  .nav__navigation {
+    margin: 1rem 0 0 0;
+    padding: 0rem;
+    width: 100%;
+    height: 3rem;
+    font-size: 1.1rem;
+    background-color: var(--p-green);
+    color: var(--h-white);
+
+  }
+  .nav__navigation .link:hover{
+    color: var(--p-green) !important;
+    background-color: var(--h-white)!important;
+  }
+  .nav{
+    height: auto;
+    padding: 0;
+    padding-top: 1rem;
+    flex-direction: column;
+    background-color: var(--h-white);
+    
+  }
+
+
+  
+  
+  .reserve{
+  z-index: 10;
+  background: linear-gradient(to right, var(--p-green) 81%, transparent) ;
+  }
+  .headerImage{
+    height: 18rem;
+  }
+  .social {
+    display:block;
+    text-align: end;
+  }
+
+  .specials--dishes {
+    grid-template-areas:"a b"
+                        "c .";
+    gap: 2rem;
+  }
+
+}
+
+@media(max-width:600px){
+  
+.headerImage {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0!important;
+}
+
+.specials--dishes{
+  grid-template-areas: "a" "b" "c";
+  max-width: 16rem;
+  margin: auto;
+}
+.specials--title {
+  flex-direction: column;
+}
+.specials--title > *{
+  max-width: fit-content;
+  align-self: center;
+}
+ 
+}
